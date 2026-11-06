@@ -298,16 +298,16 @@ async def handle_message(event):
         # SKIP THUMBNAIL
         # =================================
 
-        if data and data["phase"] == "thumbnail":
-
-            if text == "/skip":
-
-                await send_file_back(
-                    event,
-                    user_id
-                )
-
+        
+        # SKIP THUMBNAIL
+        if (
+            data
+            and data["phase"] == "thumbnail"
+            and text == "/skip"
+        ):
+            await send_file_back(event, user_id)
             return
+
 
         # =================================
         # RECEIVE THUMBNAIL
